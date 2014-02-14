@@ -1,5 +1,5 @@
 require 'active_support/concern'
-module Letsrate
+module MongoidLetsrate
   extend ActiveSupport::Concern
 
   def rate(stars, user, dimension=nil, dirichlet_method=false)
@@ -16,7 +16,7 @@ module Letsrate
         update_rate_average(stars, dimension)
       end
     else
-      raise "User has already rated."
+      raise 'User has already rated.'
     end
   end
 
@@ -106,8 +106,4 @@ module Letsrate
     end
   end
 
-end
-
-class ActiveRecord::Base
-  include Letsrate
 end
