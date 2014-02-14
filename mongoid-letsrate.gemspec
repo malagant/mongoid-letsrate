@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path('../lib', __FILE__)
-require 'mongoid_letsrate/version'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'mongoid/letsrate/version'
 
 Gem::Specification.new do |s|
   s.name        = 'mongoid-letsrate'
-  s.version     = MongoidLetsrate::VERSION
+  s.version     = Mongoid::Letsrate::VERSION
   s.authors     = ['Michael Johann','Murat GUZEL']
   s.email       = ['mjohann@rails-experts.com']
   s.homepage    = 'http://github.com/malagant/mongoid-letsrate'

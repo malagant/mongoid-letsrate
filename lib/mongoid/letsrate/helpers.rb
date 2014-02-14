@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Helpers
   def rating_for(rateable_obj, options={})
 
