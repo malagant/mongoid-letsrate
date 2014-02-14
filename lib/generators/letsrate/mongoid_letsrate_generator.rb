@@ -1,5 +1,4 @@
-require 'rails/generators/migration'
-class LetsrateGenerator < Rails::Generators::Base
+class MongoidLetsrateGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   desc 'copying jquery.raty files to assets directory ...'

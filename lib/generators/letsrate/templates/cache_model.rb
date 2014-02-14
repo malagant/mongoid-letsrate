@@ -1,6 +1,6 @@
 class RatingCache
-  inlcude Mongoid::Document
-  inlcude Mongoid::Document::Timestamps
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :avg, type: Float, null: false
   field :qty, type: Integer, null: false
