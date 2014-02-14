@@ -9,7 +9,6 @@ class MongoidLetsrateGenerator < Rails::Generators::NamedBase
     copy_file 'star-off.png', 'app/assets/images/star-off.png'
     copy_file 'star-half.png', 'app/assets/images/star-half.png'
     copy_file 'letsrate.js.erb', 'app/assets/javascripts/letsrate.js.erb'
-    copy_file 'rater_controller.rb', 'app/controllers/rater_controller.rb'
   end
 
   desc 'model is being created...'
@@ -19,6 +18,7 @@ class MongoidLetsrateGenerator < Rails::Generators::NamedBase
     class_collisions 'Rate'
     template 'model.rb', File.join('app/models', 'rate.rb')
     template 'cache_model.rb', File.join('app/models', 'rating_cache.rb')
+    template 'rater_controller.rb', File.join('app/controllers', 'rater_controller.rb')
   end
 
   def add_rate_path_to_route

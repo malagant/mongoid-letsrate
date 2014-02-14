@@ -8,7 +8,7 @@ module Helpers
 
     star = options[:star] || 5
 
-    disable_after_rate = options[:disable_after_rate] || true
+    disable_after_rate = options[:disable_after_rate].nil? ? true : options[:disable_after_rate]
 
     readonly = !(current_user && rateable_obj.can_rate?(current_user))
 
@@ -25,7 +25,7 @@ module Helpers
     @rating = Rate.find_by_rater_id_and_rateable_id(@user.id, @object.id)
     stars = @rating ? @rating.stars : 0
 
-    disable_after_rate = options[:disable_after_rate] || false
+    disable_after_rate = options[:disable_after_rate].nil? ? true : options[:disable_after_rate]
 
     readonly=false
     if disable_after_rate

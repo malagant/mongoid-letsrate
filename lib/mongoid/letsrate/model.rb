@@ -73,7 +73,7 @@ module Mongoid
 
       def letsrate_rateable
         has_many :rates, :as => :rateable, :class_name => 'Rate', :dependent => :destroy
-        has_many :raters
+        has_many :raters, class_name: 'User'
 
         has_one :average, :as => :cacheable,
                 :class_name => 'RatingCache', :dependent => :destroy
