@@ -5,7 +5,7 @@ Provides the best way to add rating capabilites to your Rails application with j
 ## Repository
 
 [![Build Status](https://secure.travis-ci.org/malagant/mongoid-letsrate.png)](http://travis-ci.org/malagant/mongoid-letsrate)
-[![Dependency Status](https://gemnasium.com/malagant/letsrate.png)](https://gemnasium.com/malagant/mongoid-letsrate)
+[![Dependency Status](https://gemnasium.com/malagant/mongoid-letsrate.png)](https://gemnasium.com/malagant/mongoid-letsrate)
 [![Code Climate](https://codeclimate.com/github/malagant/mongoid-letsrate.png)](https://codeclimate.com/github/malagant/mongoid-letsrate)
 
 Find it at [github.com/malagant/mongoid-letsrate](https://github.com/malagant/mongoid-letsrate)
