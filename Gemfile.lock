@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mongoid-letsrate (1.0.9)
+    mongoid-letsrate (1.0.10)
 
 GEM
   remote: http://rubygems.org/
