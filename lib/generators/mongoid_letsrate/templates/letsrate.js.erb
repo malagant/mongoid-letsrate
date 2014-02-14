@@ -17,7 +17,6 @@ $(function(){
         $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
         {
           score: score,
-          dimension: $(this).attr('data-dimension'),
           id: $(this).attr('data-id'),
           klass: $(this).attr('data-classname')
         },

@@ -50,19 +50,24 @@ I suppose you have a car model
 rails g model car name:string
 ```
 
-You should add the mongoid-letsrate_rateable function with its dimensions option. You can add multiple dimensions.
+You should add the letsrate_rateable function.
 
 ```ruby
-class Car < ActiveRecord::Base
-  mongoid-letsrate_rateable "speed", "engine", "price"
+class Car
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  letsrate_rateable
 end
 ```
 
-Then you need to add a call mongoid-letsrate_rater in the user model.
+Then you need to add a call letsrate_rater in the user model.
 
 ```ruby
-class User < ActiveRecord::Base
-  mongoid-letsrate_rater
+class User
+  include Mongoid::Document
+
+  letsrate_rater
 end
 ```
 
@@ -74,23 +79,19 @@ new rating value from authenticated user.
 ```erb
 <%# show.html.erb -> /cars/1 %>
 
-Speed : <%= rating_for @car, "speed" %>
-Engine : <%= rating_for @car, "engine" %>
-Price : <%= rating_for @car, "price" %>
+Rating : <%= rating_for @car %>
 ```
 
 If you need to change the star number, you should use star option like below.
 
 ```erb
-Speed : <%= rating_for @car, "speed", :star => 10 %>
-Speed : <%= rating_for @car, "engine", :star => 7 %>
-Speed : <%= rating_for @car, "price" %>
+Rating : <%= rating_for @car, :star => 10 %>
 ```
 
 You can use the rating_for_user helper method to show the star rating for the user.
 
 ```erb
-Speed : <%= rating_for_user @car, current_user, "speed", :star => 10 %>
+Rating : <%= rating_for_user @car, current_user, :star => 10 %>
 ```
 
 
