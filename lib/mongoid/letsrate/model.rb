@@ -55,7 +55,7 @@ module Mongoid
       else
         a = average
         a.qty = rates.count
-        a.avg = rates.average(:stars)
+        a.avg = average(:stars)
         a.save!(validate: false)
       end
     end
@@ -69,6 +69,7 @@ module Mongoid
       def letsrate_rater
         has_many :ratings_given, :class_name => 'Rate'
         belongs_to :rater
+        belongs_to :average
       end
 
       def letsrate_rateable
