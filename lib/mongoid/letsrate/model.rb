@@ -54,8 +54,9 @@ module Mongoid
         end
       else
         a = average
+        all_stars = rates.map &:stars
+        a.avg = all_stars.inject { |sum, value| sum + value} / all_stars.size
         a.qty = rates.count
-        a.avg = average(:stars)
         a.save!(validate: false)
       end
     end
@@ -69,7 +70,6 @@ module Mongoid
       def letsrate_rater
         has_many :ratings_given, :class_name => 'Rate'
         belongs_to :rater
-        belongs_to :average
       end
 
       def letsrate_rateable
