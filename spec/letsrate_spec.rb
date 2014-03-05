@@ -28,6 +28,15 @@ describe Mongoid::Letsrate do
     product.should_not be_nil
   end
 
+  describe 'User with letsrate' do
+    it 'should have relation to rateable' do
+      first_user.should have_many_related :ratings_given
+    end
+    it 'should have relation to rateable' do
+      first_user.should belong_to :rateable
+    end
+  end
+
   describe 'Product gets rated by user' do
     it 'rates should be of type Mongoid::Relations::Targets::Enumerable' do
       product.rates.class.should eql Mongoid::Relations::Targets::Enumerable
@@ -47,11 +56,5 @@ describe Mongoid::Letsrate do
       product.rate 5, second_user
       product.rates.count.should eql 2
     end
-
-    it 'rates.average should be 5.0' do
-      product.rate 5, first_user
-      product.rate 5, second_user
-      product.average.avg.should eql 5.0
-    end
-  end
+   end
 end
