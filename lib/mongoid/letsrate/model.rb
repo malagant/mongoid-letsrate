@@ -17,15 +17,22 @@ module Mongoid
       end
     end
 
+    # The average rating
+    def rating
+      average ? average.avg : 0
+    end
+
     def update_rate_average(stars)
       if average.nil?
         RatingCache.create! do |avg|
+          puts "About to create average"
           avg.cacheable_id = self.id
           avg.cacheable_type = self.class.name
           avg.avg = stars
           avg.qty = 1
         end
       else
+        puts "Found average"
         a = average
         all_stars = rates.map &:stars
         a.avg = all_stars.inject { |sum, value| sum + value } / all_stars.size

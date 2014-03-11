@@ -37,7 +37,7 @@ describe Mongoid::Letsrate do
     end
   end
 
-  describe 'Product gets rated by user' do
+  describe 'Product rated by user' do
     it 'rates should be of type Mongoid::Relations::Targets::Enumerable' do
       product.rates.class.should eql Mongoid::Relations::Targets::Enumerable
     end
@@ -55,6 +55,22 @@ describe Mongoid::Letsrate do
       product.rate 5, first_user
       product.rate 5, second_user
       product.rates.count.should eql 2
+    end
+
+    it 'average rating create' do
+      rating_cache = product.rate 2, first_user
+      rating_cache.should_not be_nil
+    end
+
+    it 'average rating create' do
+      rating_cache = product.rate 2, first_user
+      rating_cache.avg.should eql 2.0
+    end
+
+    it 'average rating should be 2.5 after rating with 2 and 3 stars' do
+      cacheable = product.rate(2, first_user).cacheable
+      cacheable.rate 3, second_user
+      cacheable.rating.should eql 2.5
     end
    end
 end
